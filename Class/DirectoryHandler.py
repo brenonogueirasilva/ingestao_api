@@ -51,8 +51,8 @@ class DirectoryHandler:
         Returns:
             list: A list of file and directory names.
         '''
-
-        return self.destination_path + os.listdir(self.destination_path)
+        complete_path = list(map(lambda path : self.destination_path + "/" + path, os.listdir(self.destination_path ))) 
+        return complete_path
     
     def dict_api_information(self, path : str) -> dict:
         '''
