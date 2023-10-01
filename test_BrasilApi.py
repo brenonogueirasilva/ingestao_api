@@ -8,10 +8,11 @@ from Class import DirectoryHandler
 from Class import Postgres
 
 
-#Testa se metodo request so retorna objeto com metodo 200
 @patch('requests.get')
 def test_method_request_1(mock_get):
-
+    '''
+    Test if method request return None when status_code is not 200
+    '''
     requisicao = Mock()
     requisicao.status_code = 400
     mock_get.return_value = requisicao 
@@ -27,10 +28,11 @@ def test_method_request_1(mock_get):
     resposta = brasil_api.request(query_parameters, path_parameter)
     assert resposta == None 
 
-#Testa se metodo request so retorna objeto com metodo 200
 @patch('requests.get')
 def test_method_request_2(mock_get):
-
+    '''
+    Test if method return not None when status_code is 200
+    '''
     requisicao = Mock()
     requisicao.status_code = 200
     mock_get.return_value = requisicao 
