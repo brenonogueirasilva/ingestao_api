@@ -3,6 +3,29 @@ import pandas as pd
 import DirectoryHandler
 
 class BrasilApi:
+    '''
+    Class for interacting with the BrasilAPI (https://brasilapi.com.br/).
+
+    Parameters:
+        - endpoint (str): The specific API endpoint you want to access.
+        - query_parameters (str): Query parameters for the request in string format.
+        - path_parameters (dict, optional): Path parameters for the request in a dictionary.
+        - token (str, optional): An authentication token (if applicable) to access restricted resources.
+        - download_folder (str, optional): The destination directory to save downloaded files (default is the current directory).
+
+    Methods:
+        - request(query_parameter: dict, path_parameter: str) -> requests.Response:
+            Makes a request to the BrasilAPI with the specified parameters.
+        
+        - generate_list_query_parameters() -> list:
+            Generates a list of query parameters from parameters that are list
+        
+        - generate_name_file(query: dict, path: str = None) -> str:
+            Generates a file name based on the query and path parameters specified.
+
+        - execute_requests_save_file():
+            Executes requests to the API and saves the results to JSON files using the specified query and path parameters.
+    '''
     def __init__(self, endpoint: str, query_parameters: str, path_parameters: dict = None, token: str = None, download_folder: str = '.'):
         self.url = "https://brasilapi.com.br/api/"
         self.endpoint = endpoint 
@@ -12,6 +35,16 @@ class BrasilApi:
         self.download_folder = download_folder
 
     def request(self, query_parameter : dict, path_parameter: str) -> requests.Response:
+        '''
+        Makes a request to the BrasilAPI with the specified parameters.
+
+        Args:
+            query_parameter (dict): Query parameters for the request.
+            path_parameter (str): Path parameters for the request.
+
+        Returns:
+            requests.Response: The response object of the request.
+        '''
         if self.token is not None:
             header = {
                 "chave-api-dados" : self.token
@@ -34,6 +67,12 @@ class BrasilApi:
             print(error)
 
     def generate_list_query_parameters(self) -> list:
+        '''
+        Generates a list of query parameters from the provided string parameter.
+
+        Returns:
+            list: A list of dictionaries representing the query parameters.
+        '''
         query_parameter = self.query_parameters.copy()
         for key, value in query_parameter.items():
             query_parameter[key] = [value] 
@@ -44,6 +83,16 @@ class BrasilApi:
         return ls_parameters
     
     def generate_name_file(self, query: dict, path: str= None) -> str:
+        '''
+        Generates a file name based on the query and path parameters specified.
+
+        Args:
+            query (dict): Query parameters for the request.
+            path (str, optional): Path parameters for the request.
+
+        Returns:
+            str: The generated file name.
+        '''
         name_file = self.endpoint.split('/')
         name_file = list(filter(lambda item : 'v' not in item and len(item) > 1, name_file))
         name_file = "_".join(name_file)
@@ -61,6 +110,10 @@ class BrasilApi:
         return name_file
     
     def execute_requests_save_file(self):
+        ''' 
+        Executes requests to the API and saves the results to JSON files,
+        using the specified query and path parameters.
+        '''
         directory = DirectoryHandler(self.download_folder)
         ls_query_parameters = self.generate_list_query_parameters()
         path_parameters = self.path_parameters
