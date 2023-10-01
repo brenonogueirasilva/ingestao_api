@@ -4,7 +4,6 @@ import json
 class DirectoryHandler:
     def __init__(self, destination_path):
         self.destination_path = destination_path
-        arquivo = './downloads'
         if not os.path.exists(self.destination_path):
             os.mkdir(self.destination_path)
 
