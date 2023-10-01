@@ -9,3 +9,6 @@ class DirectoryHandler:
         path_save = f'{self.destination_path}/{name_file}.json' 
         with open(path_save, 'w') as json_file:
             json.dump(object_request.json(), json_file, indent=4)
+
+    def list_dir(self):
+        return os.listdir(self.destination_path)
