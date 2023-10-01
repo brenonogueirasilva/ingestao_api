@@ -3,7 +3,7 @@ import pandas as pd
 import DirectoryHandler
 
 class BrasilApi:
-    def __init__(self, endpoint, query_parameters, path_parameters = None, token = None, download_folder = '.'):
+    def __init__(self, endpoint: str, query_parameters: str, path_parameters: dict = None, token: str = None, download_folder: str = '.'):
         self.url = "https://brasilapi.com.br/api/"
         self.endpoint = endpoint 
         self.query_parameters = query_parameters
@@ -11,7 +11,7 @@ class BrasilApi:
         self.token  = token
         self.download_folder = download_folder
 
-    def request(self, query_parameter, path_parameter):
+    def request(self, query_parameter : dict, path_parameter: str) -> requests.Response:
         if self.token is not None:
             header = {
                 "chave-api-dados" : self.token
@@ -33,7 +33,7 @@ class BrasilApi:
             print("Ocorreu um erro ao fazer a solicitação:")
             print(error)
 
-    def generate_list_query_parameters(self):
+    def generate_list_query_parameters(self) -> list:
         query_parameter = self.query_parameters.copy()
         for key, value in query_parameter.items():
             query_parameter[key] = [value] 
@@ -43,7 +43,7 @@ class BrasilApi:
         ls_parameters = df_parameters.to_dict(orient='records')
         return ls_parameters
     
-    def generate_name_file(self, query, path= None):
+    def generate_name_file(self, query: dict, path: str= None) -> str:
         name_file = self.endpoint.split('/')
         name_file = list(filter(lambda item : 'v' not in item and len(item) > 1, name_file))
         name_file = "_".join(name_file)
