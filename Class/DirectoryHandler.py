@@ -41,3 +41,19 @@ class DirectoryHandler:
             list: A list of file and directory names.
         '''
         return os.listdir(self.destination_path)
+    
+    def dict_api_information(path):
+        '''
+        Returns a dict with information about api (path or query) to add to dataframe
+        '''
+        ls_api_information = path.split('/')[-1]
+        ls_api_information = list(filter(lambda item : '(' in item ,ls_api_information.split('_')))
+        ls_api_information = list(map( lambda x : x.replace('.json', ''), ls_api_information))
+        dict_api_information = {}
+        for api_information in ls_api_information:
+            pattern = r'^(.*?)\((.*?)\)$'
+            result = re.match(pattern, api_information)
+            key = result.group(1)
+            value = result.group(2)
+            dict_api_information[key] = value
+        return dict_api_information
