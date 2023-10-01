@@ -60,9 +60,9 @@ class DirectoryHandler:
             dict_api_information[key] = value
         return dict_api_information
     
-    def json_to_dataframe(self, path):
+    def json_to_dataframe(self, path: str) -> pd.DataFrame:
         '''
-        
+        Transforms a file json and return a pandas dataframe
         '''
         data_frame = pd.read_json(path)
         dict_api = self.dict_api_information(path)
