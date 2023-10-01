@@ -1,6 +1,8 @@
 import os
 import json 
 import requests
+import re 
+import pandas as pd
 
 class DirectoryHandler:
     ''' 
@@ -42,7 +44,7 @@ class DirectoryHandler:
         '''
         return os.listdir(self.destination_path)
     
-    def dict_api_information(path):
+    def dict_api_information(self, path):
         '''
         Returns a dict with information about api (path or query) to add to dataframe
         '''
@@ -57,3 +59,10 @@ class DirectoryHandler:
             value = result.group(2)
             dict_api_information[key] = value
         return dict_api_information
+    
+    def json_to_dataframe(self, path):
+        data_frame = pd.read_json(path)
+        dict_api = self.dict_api_information(path)
+        for key, value in dict_api.items():
+            data_frame[key] = value 
+        return data_frame
