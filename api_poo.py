@@ -7,15 +7,12 @@ from datetime import datetime
 import psycopg2
 import json 
 
-class Api:
-    def __init__(self, url, download_folder, token, par_orgao_superior, par_mes_ano_inicio, par_mes_ano_fim, par_uf):
-        self.url = url
-        self.download_folder  = download_folder 
+class BrasilApi:
+    def __init__(self, endpoint, token = None, parameters ):
+        self.url = "https://brasilapi.com.br/api/"
+        self.endpoint = endpoint 
         self.token  = token
-        self.par_orgao_superior  = par_orgao_superior
-        self.par_mes_ano_inicio  = par_mes_ano_inicio
-        self.par_mes_ano_fim  = par_mes_ano_fim
-        self.par_uf  = par_uf
+        self.parameters = parameters 
         self.requisicoes = 0
         self.limite_requisicoes = 3
 
