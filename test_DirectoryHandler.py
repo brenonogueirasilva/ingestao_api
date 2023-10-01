@@ -5,10 +5,10 @@ import os
 
 from Class import DirectoryHandler
 
-
-#Testa se metodo request so retorna objeto com metodo 200
 def test_request_to_json_file():
-
+    '''
+    Test if can write a json file with an request object
+    '''
     class MockRequest:
         def __init__(self) -> None:
             pass
@@ -23,3 +23,14 @@ def test_request_to_json_file():
     files = os.listdir(download_folder)
     assert 'json' in files[0]
     shutil.rmtree(download_folder)
+
+def test_list_dir():
+    '''
+    Test if the method can list all list paths on the dir
+    '''
+    download_folder = './download'
+    directory_handler =DirectoryHandler(download_folder)
+    list_files = directory_handler.list_dir()
+    assert list_files ==  os.listdir(download_folder)
+
+
