@@ -66,7 +66,7 @@ class Postgres:
             pd.DataFrame: A DataFrame containing the query result.
         '''
         try:
-            self.open_connection
+            self.open_connection()
             self.cursor.execute(sql_query)
             tabela = self.cursor.fetchall()
             data_frame = pd.DataFrame(tabela, columns=[desc[0] for desc in self.cursor.description])
@@ -85,9 +85,9 @@ class Postgres:
             table_name (str): The name of the table to insert data into.
         '''
         try:
-            self.open_connection
+            self.open_connection()
             colunas = ', '.join(str(item) for item in list(data_frame.columns))
-            for index, row in df.iterrows():
+            for index, row in data_frame.iterrows():
                 exec = [row[x] for x in list(data_frame.columns)]
                 exec = ', '.join(  "'" + str(item) + "'" if isinstance(item, str) else str(item) for item in exec)
                 consulta = f"insert into {table_name} ({colunas}) VALUES ({exec})"
@@ -107,7 +107,7 @@ class Postgres:
             sql_query (str): The SQL query to create or delete a table.
         '''
         try:
-            self.open_connection
+            self.open_connection()
             self.cursor.execute(sql_query)
             self.conn.commit()
             print('Criacao ou Deleção realizada com sucesso')
