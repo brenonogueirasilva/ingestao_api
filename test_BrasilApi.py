@@ -47,6 +47,22 @@ def test_method_request_2(mock_get):
     assert resposta != None 
 
 
+def test_generate_list_query_parameters():
+    '''
+    Test if the method can generate a list of dictiaries that not contain a lista, because api request do not accept lists
+    '''
+    brasil_api =  BrasilApi(
+        endpoint= "ibge/municipios/v1/",
+        query_parameters = { "par1" : [1,2,3] , "par2" : 2, "par3" : [1,2,3,4,5]},
+        path_parameters= ['SP', 'MG' ],
+        download_folder= './test_download'  
+    )
+    dict = brasil_api.generate_list_query_parameters()
+    cont_dict =0 
+    for item in dict:
+        if isinstance(item, list):
+            cont_dict += 1
+    assert cont_dict == 0
     
 
 
