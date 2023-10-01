@@ -32,13 +32,6 @@ class BrasilApi:
             print("Ocorreu um erro ao fazer a solicitação:")
             print(error)
 
-    
-    def save_json(self, nome_arquivo, data):
-        path_save = f'{self.download_folder}{nome_arquivo}.json'
-        data = data.json()
-        with open(path_save, 'w') as json_file:
-            json.dump(data, json_file, indent=4) 
-
     def execute_requests_save_json(self):
         resposta = None
         #loop para os orgaos
