@@ -5,6 +5,10 @@ import pandas as pd
 
 import api_poo as api 
 
+
+def test
+
+
 #Testar metodo request, status code == 200
 @patch('requests.get')
 def test_request_status_code(mock_get):
