@@ -53,13 +53,6 @@ class BrasilApi:
                 else:
                     cond = False
                     
-    def json_to_df(self):
-        ls_dfs = []
-        for nome_arquivo in os.listdir(self.download_folder):
-            df = pd.read_json(self.download_folder + nome_arquivo)
-            ls_dfs.append(df)
-        df_union = pd.concat(ls_dfs)
-        return df_union
     
 class Postgres:
     def __init__(self, host, port, database, user, password):
