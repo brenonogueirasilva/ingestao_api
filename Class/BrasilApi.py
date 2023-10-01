@@ -106,9 +106,9 @@ class BrasilApi:
         if len(list_queries) > 0:
             for item in list_queries:
                 query_value = query[item]
-                name_file = f"{name_file}_query({query_value})" 
+                name_file = f"{name_file}_{item}({query_value})" 
         return name_file
-    
+ 
     def execute_requests_save_file(self):
         ''' 
         Executes requests to the API and saves the results to JSON files,
