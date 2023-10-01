@@ -64,5 +64,17 @@ def test_generate_list_query_parameters():
             cont_dict += 1
     assert cont_dict == 0
     
-
-
+def test_generate_name_file():
+    '''
+    Test if method can generate a name with list parameters
+    '''
+    brasil_api =  BrasilApi(
+        endpoint= "ibge/municipios/v1/",
+        query_parameters = { "par1" : [1,2,3] , "par2" : 2, "par3" : [1,2,3,4,5]},
+        path_parameters= ['SP', 'MG' ],
+        download_folder= './test_download'  
+    )
+    query = { "par1" : 2 , "par2" : 2, "par3" : 4}
+    path_parameters= 'MG'
+    name = brasil_api.generate_name_file(query, path_parameters) 
+    assert 'path' in name and 'MG' in name and 'par1' in name and '2' in name and 'par3' in name and '4' in name
