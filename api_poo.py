@@ -31,27 +31,6 @@ class BrasilApi:
         except requests.exceptions.RequestException as error:
             print("Ocorreu um erro ao fazer a solicitação:")
             print(error)
-
-    def execute_requests_save_json(self):
-        resposta = None
-        #loop para os orgaos
-        for orgao in self.par_orgao_superior:
-            cond = True
-            pagina = 0
-            # loop da pagina
-            while cond:
-                pagina += 1
-                nome_documento = f"recursos_pag({pagina})_orgao({orgao})"
-                resposta = self.request(pagina, orgao)
-                self.requisicoes += 1
-                if self.requisicoes >= self.limite_requisicoes:
-                    print('limite de requisicoes atingido por minutos, aguardando')
-                    time.sleep(2)
-                    self.requisicoes = 0
-                if len(resposta.content) > 2:
-                    self.save_json(nome_documento, resposta)
-                else:
-                    cond = False
                     
     
 class Postgres:
