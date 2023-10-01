@@ -44,6 +44,16 @@ class DirectoryHandler:
         '''
         return os.listdir(self.destination_path)
     
+    def list_dir_complete_path(self) -> list:
+        '''
+        Returns a list of files and directories in the destination directory, with full path.
+
+        Returns:
+            list: A list of file and directory names.
+        '''
+
+        return self.destination_path + os.listdir(self.destination_path)
+    
     def dict_api_information(self, path : str) -> dict:
         '''
         Returns a dict with information about api (path or query) to add to dataframe
