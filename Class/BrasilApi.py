@@ -43,3 +43,22 @@ class BrasilApi:
             df_parameters = df_parameters.explode(column)
         ls_parameters = df_parameters.to_dict(orient='records')
         return ls_parameters
+    
+    def generate_name_file(self, query, path= None):
+        name_file = self.endpoint.split('/')
+        name_file = list(filter(lambda item : 'v' not in item and len(item) > 1, name_file))
+        name_file = "_".join(name_file)
+        if path is not None:
+            name_file = f"{name_file}_path({path})" 
+
+        list_queries = []
+        for key, value in self.query_parameters.items():
+            if isinstance(value, list):
+                list_queries.append(key)
+        if len(list_queries) > 0:
+            for item in list_queries:
+                query_value = query[item]
+                name_file = f"{name_file}_query({query_value})" 
+        return name_file
+    
+    
