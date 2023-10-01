@@ -44,7 +44,7 @@ class DirectoryHandler:
         '''
         return os.listdir(self.destination_path)
     
-    def dict_api_information(self, path):
+    def dict_api_information(self, path : str) -> dict:
         '''
         Returns a dict with information about api (path or query) to add to dataframe
         '''
@@ -61,6 +61,9 @@ class DirectoryHandler:
         return dict_api_information
     
     def json_to_dataframe(self, path):
+        '''
+        
+        '''
         data_frame = pd.read_json(path)
         dict_api = self.dict_api_information(path)
         for key, value in dict_api.items():
