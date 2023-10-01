@@ -10,8 +10,6 @@ class BrasilApi:
         self.path_parameters = path_parameters
         self.token  = token
         self.download_folder = download_folder
-        self.requisicoes = 0
-        self.limite_requisicoes = 3
 
     def request(self, query_parameter, path_parameter):
         if self.token is not None:
