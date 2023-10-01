@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-import DirectoryHandler
+from .DirectoryHandler import DirectoryHandler
 
 class BrasilApi:
     '''
