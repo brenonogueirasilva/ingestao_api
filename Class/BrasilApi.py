@@ -1,9 +1,11 @@
 class BrasilApi:
-    def __init__(self, endpoint, parameters, token = None):
+    def __init__(self, endpoint, query_parameters, path_parameters = None, token = None, download_folder = '.'):
         self.url = "https://brasilapi.com.br/api/"
         self.endpoint = endpoint 
-        self.parameters = parameters 
+        self.query_parameters = query_parameters
+        self.path_parameters = path_parameters
         self.token  = token
+        self.download_folder = download_folder
         self.requisicoes = 0
         self.limite_requisicoes = 3
 
