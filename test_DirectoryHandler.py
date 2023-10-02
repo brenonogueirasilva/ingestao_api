@@ -3,6 +3,7 @@ import pandas as pd
 import shutil
 import os
 import json
+import pandas as pd
 
 from Class import DirectoryHandler
 
@@ -53,7 +54,40 @@ def test_api_information():
         os.mkdir(example_folder)
     with open(example_folder + 'ibge_municipios_path(MG).json' , 'w') as json_file:
             json.dump( {'chave1' : 'valor1', 'chave2' : 'valor2'}, json_file, indent=4)
-    download_folder = './download/ibge_municipios_path(MG).json'
-    directory_handler =DirectoryHandler(download_folder)
-    name = directory_handler.dict_api_information(download_folder)
+    path = './example_folder/ibge_municipios_path(MG).json'
+    directory_handler =DirectoryHandler(example_folder)
+    name = directory_handler.dict_api_information(path)
     assert {'path': 'MG'} == name 
+    shutil.rmtree(example_folder)
+
+def test_json_to_dataframe():
+    '''
+    Test if json turns into dataframe
+    '''
+    example_folder = './example_folder/'
+    if not os.path.exists(example_folder):
+        os.mkdir(example_folder)
+    dict_json = [
+    {
+        "nome": "ABADIA DOS DOURADOS",
+        "codigo_ibge": "3100104"
+    },
+    {
+        "nome": "ABAETE",
+        "codigo_ibge": "3100203"
+    },
+    {
+        "nome": "ABRE CAMPO",
+        "codigo_ibge": "3100302"
+    }]
+    with open(example_folder + 'ibge_municipios_path(MG).json' , 'w') as json_file:
+            json.dump( dict_json, json_file, indent=4)
+
+    path= './example_folder/ibge_municipios_path(MG).json'
+    directory_handler =DirectoryHandler(example_folder)
+    df = directory_handler.json_to_dataframe(path)
+    assert isinstance(df, pd.DataFrame) 
+
+    
+
+
