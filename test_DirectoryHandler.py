@@ -2,6 +2,7 @@ from unittest.mock import Mock , patch
 import pandas as pd
 import shutil
 import os
+import json
 
 from Class import DirectoryHandler
 
@@ -43,4 +44,16 @@ def test_dir_complete_path():
     example_path = './Class/Postgres.py'
     assert example_path in list_files
 
-
+def test_api_information():
+    '''
+    Test if return a dict with information about api (path or query)
+    '''
+    example_folder = './example_folder/'
+    if not os.path.exists(example_folder):
+        os.mkdir(example_folder)
+    with open(example_folder + 'ibge_municipios_path(MG).json' , 'w') as json_file:
+            json.dump( {'chave1' : 'valor1', 'chave2' : 'valor2'}, json_file, indent=4)
+    download_folder = './download/ibge_municipios_path(MG).json'
+    directory_handler =DirectoryHandler(download_folder)
+    name = directory_handler.dict_api_information(download_folder)
+    assert {'path': 'MG'} == name 
