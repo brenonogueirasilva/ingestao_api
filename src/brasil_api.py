@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import logging
 
 class BrasilApi:
     '''
@@ -43,8 +44,8 @@ class BrasilApi:
                 return response
             response.raise_for_status()
         except requests.exceptions.RequestException as error:
-            print("Ocorreu um erro ao fazer a solicitação:")
-            print(error)
+            logging.error("There was an error in your solicitation")
+            logging.error(error)
     
     def generate_name_file(self, query: dict, path: str= None) -> str:
         '''
