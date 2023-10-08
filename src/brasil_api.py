@@ -45,22 +45,6 @@ class BrasilApi:
         except requests.exceptions.RequestException as error:
             print("Ocorreu um erro ao fazer a solicitação:")
             print(error)
-
-    def generate_list_query_parameters(self) -> list:
-        '''
-        Generates a list of query parameters from the provided string parameter.
-
-        Returns:
-            list: A list of dictionaries representing the query parameters.
-        '''
-        query_parameter = self.query_parameters.copy()
-        for key, value in query_parameter.items():
-            query_parameter[key] = [value] 
-        df_parameters = pd.DataFrame(query_parameter)
-        for column in df_parameters.columns:
-            df_parameters = df_parameters.explode(column)
-        ls_parameters = df_parameters.to_dict(orient='records')
-        return ls_parameters
     
     def generate_name_file(self, query: dict, path: str= None) -> str:
         '''
