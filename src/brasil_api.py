@@ -7,10 +7,9 @@ class BrasilApi:
 
     Parameters:
         - endpoint (str): The specific API endpoint you want to access.
-        - query_parameters (str): Query parameters for the request in string format.
-        - path_parameters (dict, optional): Path parameters for the request in a dictionary.
+        - query_parameter (str): Query parameter for the request in string format.
+        - path_parameter (dict, optional): Path parameter for the request in a dictionary.
         - token (str, optional): An authentication token (if applicable) to access restricted resources.
-        - download_folder (str, optional): The destination directory to save downloaded files (default is the current directory).
     '''
     def __init__(self, endpoint : str,  query_parameter : dict, path_parameter: str, token: str = None):
         self.url = "https://brasilapi.com.br/api/"
@@ -19,13 +18,9 @@ class BrasilApi:
         self.path_parameter = path_parameter
         self.token = token
 
-    def request(self, query_parameter : dict, path_parameter: str) -> requests.Response:
+    def request_get(self) -> requests.Response:
         '''
         Makes a request to the BrasilAPI with the specified parameters.
-
-        Args:
-            query_parameter (dict): Query parameters for the request.
-            path_parameter (str): Path parameters for the request.
 
         Returns:
             requests.Response: The response object of the request.
@@ -37,13 +32,13 @@ class BrasilApi:
         else:
             header = None
 
-        if path_parameter is None:
+        if self.path_parameter is None:
             complete_url = self.url + self.endpoint
         else:
-            complete_url = self.url + self.endpoint + path_parameter
+            complete_url = self.url + self.endpoint + self.path_parameter
 
         try:
-            response = requests.get(url= complete_url, headers= header, params= query_parameter)
+            response = requests.get(url= complete_url, headers= header, params= self.query_parameter)
             if response.status_code == 200:
                 return response
             response.raise_for_status()
