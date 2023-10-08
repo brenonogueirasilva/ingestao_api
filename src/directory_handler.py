@@ -1,7 +1,6 @@
 import os
 import json 
 import requests
-import re 
 import pandas as pd
 
 class DirectoryHandler:
@@ -10,13 +9,6 @@ class DirectoryHandler:
 
     Parameters:
         - destination_path (str): The path to the destination directory.
-
-    Methods:
-        - request_to_json_file(object_request: requests.Response, name_file: str):
-            Saves the JSON content of a requests.Response object to a file with the specified name.
-
-        - list_dir() -> list:
-            Returns a list of files and directories in the destination directory.
     ''' 
     def __init__(self, destination_path: str):
         self.destination_path = destination_path
@@ -53,23 +45,7 @@ class DirectoryHandler:
         '''
         complete_path = list(map(lambda path : self.destination_path + "/" + path, os.listdir(self.destination_path ))) 
         return complete_path
-    
-    def dict_api_information(self, path : str) -> dict:
-        '''
-        Returns a dict with information about api (path or query) to add to dataframe
-        '''
-        ls_api_information = path.split('/')[-1]
-        ls_api_information = list(filter(lambda item : '(' in item ,ls_api_information.split('_')))
-        ls_api_information = list(map( lambda x : x.replace('.json', ''), ls_api_information))
-        dict_api_information = {}
-        for api_information in ls_api_information:
-            pattern = r'^(.*?)\((.*?)\)$'
-            result = re.match(pattern, api_information)
-            key = result.group(1)
-            value = result.group(2)
-            dict_api_information[key] = value
-        return dict_api_information
-    
+        
     def json_to_dataframe(self, path: str) -> pd.DataFrame:
         '''
         Transforms a file json and return a pandas dataframe
