@@ -1,3 +1,5 @@
+from brasil_api import BrasilApi
+from directory_handler import DirectoryHandler
 
 class ApiOrquestrator:
     """
@@ -36,3 +38,19 @@ class ApiOrquestrator:
             for query in ls_query_parameters:
                 ls_parameters.append( {'path' : path, 'query_parameter' : query} )
         return ls_parameters
+    
+    def execute_requests_save_file(self):
+        """
+        Execute API requests, save responses to JSON files.
+        """
+        directory = DirectoryHandler(self.download_folder)
+        ls_query_path_parameters = self.generate_list_query__path_parameters()
+        for dict_query_parameters in ls_query_path_parameters:
+            obj_brasil_api = BrasilApi(
+                endpoint= self.endpoint,
+                query_parameter= dict_query_parameters['query_parameter'],
+                path_parameter= dict_query_parameters['path'] 
+            )
+            response = obj_brasil_api.request_get()
+            name_file = obj_brasil_api.generate_name_file()
+            directory.request_to_json_file(response, name_file)
