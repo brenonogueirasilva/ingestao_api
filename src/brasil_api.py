@@ -73,26 +73,6 @@ class BrasilApi:
             name_file = f"{name_file}_{key}({value})" 
         return name_file
  
-    def execute_requests_save_file(self):
-        ''' 
-        Executes requests to the API and saves the results to JSON files,
-        using the specified query and path parameters.
-        '''
-        directory = DirectoryHandler(self.download_folder)
-        ls_query_parameters = self.generate_list_query_parameters()
-        path_parameters = self.path_parameters
-        if path_parameters is None:
-            for query in ls_query_parameters:
-                response = self.request(query_parameter= query)
-                name = self.generate_name_file(query)
-                directory.request_to_json_file(response, name)
-        else:
-            if not isinstance(path_parameters, list):
-                path_parameters = [path_parameters]
-            for path in path_parameters:
-                for query in ls_query_parameters:
-                    response = self.request(query_parameter= query , path_parameter= path)
-                    name = self.generate_name_file(query, path)
-                    directory.request_to_json_file(response, name)
+
     
     
