@@ -48,10 +48,10 @@ class DirectoryHandler:
         
     def json_to_dataframe(self, path: str) -> pd.DataFrame:
         '''
-        Transforms a file json and return a pandas dataframe
+        Read a file json and return a pandas dataframe
+
+        Returns:
+            pd.DataFrame : dataframe from a json file
         '''
         data_frame = pd.read_json(path)
-        dict_api = self.dict_api_information(path)
-        for key, value in dict_api.items():
-            data_frame[key] = value 
         return data_frame
