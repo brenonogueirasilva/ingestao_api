@@ -57,20 +57,20 @@ class BrasilApi:
         Returns:
             str: The generated file name.
         '''
+    def generate_name_file(self) -> str:
+        '''
+        Generates a file name based on the query and path parameters specified.
+
+        Returns:
+            str: The generated file name.
+        '''
         name_file = self.endpoint.split('/')
         name_file = list(filter(lambda item : 'v' not in item and len(item) > 1, name_file))
         name_file = "_".join(name_file)
-        if path is not None:
-            name_file = f"{name_file}_path({path})" 
-
-        list_queries = []
-        for key, value in self.query_parameters.items():
-            if isinstance(value, list):
-                list_queries.append(key)
-        if len(list_queries) > 0:
-            for item in list_queries:
-                query_value = query[item]
-                name_file = f"{name_file}_{item}({query_value})" 
+        if self.path_parameter is not None:
+            name_file = f"{name_file}_path({self.path_parameter})" 
+        for key, value in self.query_parameter.items():
+            name_file = f"{name_file}_{key}({value})" 
         return name_file
  
     def execute_requests_save_file(self):
