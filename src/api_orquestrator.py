@@ -1,3 +1,5 @@
+import pandas as pd
+
 from brasil_api import BrasilApi
 from directory_handler import DirectoryHandler
 

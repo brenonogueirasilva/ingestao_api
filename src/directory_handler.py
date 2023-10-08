@@ -27,6 +27,22 @@ class DirectoryHandler:
         with open(path_save, 'w') as json_file:
             json.dump(object_request.json(), json_file, indent=4)
 
+    def request_to_json_envelope_file(self, object_request: requests.Response, envelope : dict, name_file: str):
+        '''
+        Saves the JSON content of a requests with an envelope.Response object to a JSON file.
+
+        Args:
+            object_request (requests.Response): The requests.Response object containing JSON data.
+            envelope: envelope dictionary
+            name_file (str): The name of the JSON file to be saved.
+        '''
+        json_content = {}
+        json_content['envelope'] = envelope['envelope']
+        json_content['content'] = object_request.json()
+        path_save = f'{self.destination_path}/{name_file}.json' 
+        with open(path_save, 'w') as json_file:
+            json.dump(json_content, json_file, indent=4)
+
     def list_dir(self) -> list:
         '''
         Returns a list of files and directories in the destination directory.
