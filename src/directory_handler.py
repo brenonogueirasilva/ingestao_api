@@ -55,3 +55,17 @@ class DirectoryHandler:
         '''
         data_frame = pd.read_json(path)
         return data_frame
+    
+    def json_envelope_to_dataframe(self, path: str) -> pd.DataFrame:
+        '''
+        Read a file json with envelope and return a pandas dataframe
+
+        Returns:
+            pd.DataFrame : dataframe from a json file with envelope
+        '''
+        with open(path, 'r') as arquivo:
+            json_data = json.load(arquivo)
+        data_frame = pd.DataFrame(json_data['content'])
+        for key, value in json_data['envelope'].items():
+            data_frame[key] = value 
+        return data_frame
