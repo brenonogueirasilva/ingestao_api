@@ -1,28 +1,29 @@
 import json 
+import logging
 
 from api_orquestrator import ApiOrquestrator
 from postgres import Postgres
 from directory_handler import DirectoryHandler
 
 if __name__ == "__main__":
+    logging.basicConfig(filename='./src/logs.log', level=logging.DEBUG, format= "%(asctime)s :: %(levelname)s :: %(message)s :: %(filename)s :: %(lineno)d ", )
     orquestrador = ApiOrquestrator(
     endpoint= "ibge/municipios/v1/",
     query_parameters =  { "providers" : "dados-abertos-br,gov,wikipedia"},
     path_parameters = ['BA', 'CE'],
     download_folder= '../download/'
 )
+    logging.info('Beggining Request to API')
     list_requests = orquestrador.generate_list_query__path_parameters()
     orquestrador.execute_requests_envelope_save_file()
-
-    with open('../creds.json', 'r') as arquivo_json:
-        data_json = json.load(arquivo_json)
+    logging.info('Request to API done with sucess')
 
     connector_postgres = Postgres(
         host='localhost', 
         port=5432, 
         database='postgres', 
-        user = data_json['postgres_user'], 
-        password = data_json['postgres_password']
+        user = 'postgres', 
+        password = 'postgres'
     ) 
 
     sql_insert = '''
@@ -40,6 +41,6 @@ if __name__ == "__main__":
     for item in directory_handler.list_dir_complete_path():
         df = directory_handler.json_envelope_to_dataframe(path=item)
         connector_postgres.insert_df(df, 'ibge_municipios')
-
+    logging.info('Pipeline done with sucess')
 
 
