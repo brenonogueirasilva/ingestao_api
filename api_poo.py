@@ -7,66 +7,8 @@ from datetime import datetime
 import psycopg2
 import json 
 
-class Api:
-    def __init__(self, url, download_folder, token, par_orgao_superior, par_mes_ano_inicio, par_mes_ano_fim, par_uf):
-        self.url = url
-        self.download_folder  = download_folder 
-        self.token  = token
-        self.par_orgao_superior  = par_orgao_superior
-        self.par_mes_ano_inicio  = par_mes_ano_inicio
-        self.par_mes_ano_fim  = par_mes_ano_fim
-        self.par_uf  = par_uf
-        self.requisicoes = 0
-        self.limite_requisicoes = 3
 
-    def request(self, par_pagina, par_orgao):
-        parametros = {
-            "mesAnoFim" : self.par_mes_ano_fim,
-            "mesAnoInicio" : self.par_mes_ano_inicio,
-            "pagina" : par_pagina,
-            "uf" : self.par_uf,
-            "orgaoSuperior" : par_orgao
-        }
-        header = {
-            "chave-api-dados" : self.token
-        }
-        response = requests.get(self.url, params=parametros, headers= header)
-        return response
-    
-    def save_json(self, nome_arquivo, data):
-        path_save = f'{self.download_folder}{nome_arquivo}.json'
-        data = data.json()
-        with open(path_save, 'w') as json_file:
-            json.dump(data, json_file, indent=4) 
-
-    def execute_requests_save_json(self):
-        resposta = None
-        #loop para os orgaos
-        for orgao in self.par_orgao_superior:
-            cond = True
-            pagina = 0
-            # loop da pagina
-            while cond:
-                pagina += 1
-                nome_documento = f"recursos_pag({pagina})_orgao({orgao})"
-                resposta = self.request(pagina, orgao)
-                self.requisicoes += 1
-                if self.requisicoes >= self.limite_requisicoes:
-                    print('limite de requisicoes atingido por minutos, aguardando')
-                    time.sleep(2)
-                    self.requisicoes = 0
-                if len(resposta.content) > 2:
-                    self.save_json(nome_documento, resposta)
-                else:
-                    cond = False
                     
-    def json_to_df(self):
-        ls_dfs = []
-        for nome_arquivo in os.listdir(self.download_folder):
-            df = pd.read_json(self.download_folder + nome_arquivo)
-            ls_dfs.append(df)
-        df_union = pd.concat(ls_dfs)
-        return df_union
     
 class Postgres:
     def __init__(self, host, port, database, user, password):
