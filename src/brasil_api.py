@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-from .DirectoryHandler import DirectoryHandler
 
 class BrasilApi:
     '''
@@ -12,27 +11,13 @@ class BrasilApi:
         - path_parameters (dict, optional): Path parameters for the request in a dictionary.
         - token (str, optional): An authentication token (if applicable) to access restricted resources.
         - download_folder (str, optional): The destination directory to save downloaded files (default is the current directory).
-
-    Methods:
-        - request(query_parameter: dict, path_parameter: str) -> requests.Response:
-            Makes a request to the BrasilAPI with the specified parameters.
-        
-        - generate_list_query_parameters() -> list:
-            Generates a list of query parameters from parameters that are list
-        
-        - generate_name_file(query: dict, path: str = None) -> str:
-            Generates a file name based on the query and path parameters specified.
-
-        - execute_requests_save_file():
-            Executes requests to the API and saves the results to JSON files using the specified query and path parameters.
     '''
-    def __init__(self, endpoint: str, query_parameters: str, path_parameters: dict = None, token: str = None, download_folder: str = '.'):
+    def __init__(self, endpoint : str,  query_parameter : dict, path_parameter: str, token: str = None):
         self.url = "https://brasilapi.com.br/api/"
         self.endpoint = endpoint 
-        self.query_parameters = query_parameters
-        self.path_parameters = path_parameters
-        self.token  = token
-        self.download_folder = download_folder
+        self.query_parameter = query_parameter
+        self.path_parameter = path_parameter
+        self.token = token
 
     def request(self, query_parameter : dict, path_parameter: str) -> requests.Response:
         '''
