@@ -47,17 +47,6 @@ class BrasilApi:
             logging.error("There was an error in your solicitation")
             logging.error(error)
     
-    def generate_name_file(self, query: dict, path: str= None) -> str:
-        '''
-        Generates a file name based on the query and path parameters specified.
-
-        Args:
-            query (dict): Query parameters for the request.
-            path (str, optional): Path parameters for the request.
-
-        Returns:
-            str: The generated file name.
-        '''
     def generate_name_file(self) -> str:
         '''
         Generates a file name based on the query and path parameters specified.

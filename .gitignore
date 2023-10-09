@@ -6,3 +6,5 @@ __pycache__/
 download/
 
 creds.json
+
+ignore_folder/
