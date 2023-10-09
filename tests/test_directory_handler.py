@@ -31,6 +31,35 @@ def test_request_to_json_file():
         files = os.listdir(download_folder)
         assert 'json' in files[0]
 
+def test_request_to_json_envelope_file():
+    '''
+    Test if can write a json file with an request object
+    '''
+    class MockRequest:
+        def __init__(self) -> None:
+            pass
+        def json(self):
+            dict = {'chave' : 'valor', 'chave2' : 'valor2'}
+            return dict
+        
+    envelope = {
+    "envelope": {
+        "endpoint": "ibge/municipios/v1/",
+        "path": "BA",
+        "providers": "dados-abertos-br,gov,wikipedia"
+    }}
+        
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        folder = "download_folder"
+        temp_folder = rf"{tmpdirname}\{folder}"
+
+        object_request = MockRequest()
+        download_folder = temp_folder
+        directory_handler =DirectoryHandler(download_folder)
+        directory_handler.request_to_json_envelope_file(object_request, envelope, 'teste.json')
+        files = os.listdir(download_folder)
+        assert 'json' in files[0]
+
 def test_list_dir():
     '''
     Test if the method can list all list paths on the dir
