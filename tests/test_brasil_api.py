@@ -2,10 +2,9 @@ import shutil
 import os 
 from unittest.mock import Mock , patch
 import pandas as pd
-
-from Class import BrasilApi
-from Class import DirectoryHandler
-from Class import Postgres
+import sys 
+sys.path.append('../src')
+from classes.brasil_api import BrasilApi
 
 
 @patch('requests.get')
@@ -19,14 +18,12 @@ def test_method_request_1(mock_get):
 
     brasil_api =  BrasilApi(
         endpoint= "ibge/municipios/v1/",
-        query_parameters = { "providers" : "dados-abertos-br,gov,wikipedia"},
-        path_parameters= ['SP', 'MG' ],
-        download_folder= './test_download'  
+        query_parameter = { "providers" : "dados-abertos-br,gov,wikipedia"},
+        path_parameter= 'MG'  
     )
-    query_parameters = { "providers" : "dados-abertos-br,gov,wikipedia"}
-    path_parameter = 'SP'
-    resposta = brasil_api.request(query_parameters, path_parameter)
-    assert resposta == None 
+    response = brasil_api.request_get()
+    assert response == None 
+
 
 @patch('requests.get')
 def test_method_request_2(mock_get):
