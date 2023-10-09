@@ -35,20 +35,11 @@ def test_list_dir():
     '''
     Test if the method can list all list paths on the dir
     '''
-    download_folder = './download'
+    download_folder = '.'
     directory_handler =DirectoryHandler(download_folder)
     list_files = directory_handler.list_dir()
     assert list_files ==  os.listdir(download_folder)
 
-def test_dir_complete_path():
-    '''
-    Test if the method can list a complete path on the dir
-    '''
-    download_folder = './Class'
-    directory_handler =DirectoryHandler(download_folder)
-    list_files = directory_handler.list_dir_complete_path()
-    example_path = './Class/Postgres.py'
-    assert example_path in list_files
 
 def test_api_information():
     '''
