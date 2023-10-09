@@ -4,8 +4,10 @@ import shutil
 import os
 import json
 import pandas as pd
-
-from Class import DirectoryHandler
+import tempfile
+import sys
+sys.path.append('../src')
+from classes.directory_handler import DirectoryHandler
 
 def test_request_to_json_file():
     '''
@@ -18,13 +20,16 @@ def test_request_to_json_file():
             dict = {'chave' : 'valor', 'chave2' : 'valor2'}
             return dict
         
-    object_request = MockRequest()
-    download_folder = './test_download'
-    directory_handler =DirectoryHandler(download_folder)
-    directory_handler.request_to_json_file(object_request, 'teste.json')
-    files = os.listdir(download_folder)
-    assert 'json' in files[0]
-    shutil.rmtree(download_folder)
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        folder = "download_folder"
+        temp_folder = rf"{tmpdirname}\{folder}"
+
+        object_request = MockRequest()
+        download_folder = temp_folder
+        directory_handler =DirectoryHandler(download_folder)
+        directory_handler.request_to_json_file(object_request, 'teste.json')
+        files = os.listdir(download_folder)
+        assert 'json' in files[0]
 
 def test_list_dir():
     '''
