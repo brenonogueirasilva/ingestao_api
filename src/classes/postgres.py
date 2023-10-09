@@ -1,5 +1,6 @@
 import psycopg2
 import pandas as pd
+import logging
 
 class Postgres:
     '''
@@ -72,7 +73,7 @@ class Postgres:
             data_frame = pd.DataFrame(tabela, columns=[desc[0] for desc in self.cursor.description])
             return data_frame
         except (Exception, psycopg2.Error) as error:
-            print("Ocorreu um erro ao conectar ao PostgreSQL:", error)
+            logging.error("There was an erro in connect to PostgreSql:", error)
         finally:
             self.close_connection()
 
@@ -93,9 +94,9 @@ class Postgres:
                 consulta = f"insert into {table_name} ({colunas}) VALUES ({exec})"
                 self.cursor.execute(consulta)
             self.conn.commit()
-            print('executado com sucesso')
+            logging.info('executed with sucess')
         except (Exception, psycopg2.Error) as error:
-            print("Ocorreu um erro ao conectar ao PostgreSQL:", error)
+            logging.info("There was an erro in connect to PostgreSql:", error)
         finally:
             self.close_connection()
             
@@ -110,8 +111,8 @@ class Postgres:
             self.open_connection()
             self.cursor.execute(sql_query)
             self.conn.commit()
-            print('Criacao ou Deleção realizada com sucesso')
+            logging.info('Creation o Delete done with sucess')
         except (Exception, psycopg2.Error) as error:
-            print("Ocorreu um erro ao conectar ao PostgreSQL:", error)
+            logging.error("There was an erro in connect to PostgreSql:", error)
         finally:
             self.close_connection()

@@ -1,0 +1,20 @@
+2023-10-08 20:35:07,595 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-08 20:35:07,607 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1014 
+2023-10-08 20:35:07,723 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/BA?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 473 
+2023-10-08 20:35:07,733 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1014 
+2023-10-08 20:35:07,848 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/CE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 473 
+2023-10-08 20:35:07,854 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-08 20:35:07,975 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-08 20:35:08,600 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-08 20:35:08,953 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-08 20:35:08,953 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-09 01:16:16,089 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-09 01:16:16,103 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1014 
+2023-10-09 01:16:17,539 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/BA?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 473 
+2023-10-09 01:16:17,550 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1014 
+2023-10-09 01:16:18,168 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/CE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 473 
+2023-10-09 01:16:18,177 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-09 01:16:18,365 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-09 01:16:19,012 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-09 01:16:19,367 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-09 01:16:19,367 :: INFO :: Pipeline done with sucess :: main.py :: 44 

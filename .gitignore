@@ -1,5 +1,10 @@
 *.ipynb
 
+/src/__pycache__/
 __pycache__/
 
 download/
+
+creds.json
+
+ignore_folder/
