@@ -58,5 +58,16 @@ def test_generate_name_file():
     name = brasil_api.generate_name_file(query, path_parameters) 
     assert 'path' in name and 'MG' in name and 'par1' in name and '2' in name and 'par3' in name and '4' in name
 
+def test_generate_envelope():
+    '''
+    Test if method return not None when status_code is 200
+    '''
+    brasil_api =  BrasilApi(
+        endpoint= "ibge/municipios/v1/",
+        query_parameter = { "providers" : "dados-abertos-br,gov,wikipedia"},
+        path_parameter= 'MG'  
+    )
+    envelope = brasil_api.generate_envelope()
+    assert envelope == {'envelope': {'endpoint': 'ibge/municipios/v1/', 'path': 'MG', 'providers': 'dados-abertos-br,gov,wikipedia'}}
 
     
