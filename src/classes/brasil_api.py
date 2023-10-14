@@ -65,7 +65,7 @@ class BrasilApi:
  
     def generate_envelope(self) -> dict:
         '''
-        Generates a dictionary with meta data from api request
+        Generates a dictionary with meta data (envelope)
 
         Returns:
             str: The generated dictionary with a envelope content 
