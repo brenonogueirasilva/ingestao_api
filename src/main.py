@@ -6,12 +6,12 @@ from classes.postgres import Postgres
 from classes.directory_handler import DirectoryHandler
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='./logs.log', level=logging.DEBUG, format= "%(asctime)s :: %(levelname)s :: %(message)s :: %(filename)s :: %(lineno)d ", )
+    logging.basicConfig(filename='/code/logs.log', level=logging.DEBUG, format= "%(asctime)s :: %(levelname)s :: %(message)s :: %(filename)s :: %(lineno)d ", )
     orquestrador = ApiOrquestrator(
     endpoint= "ibge/municipios/v1/",
     query_parameters =  { "providers" : "dados-abertos-br,gov,wikipedia"},
-    path_parameters = ['BA', 'CE'],
-    download_folder= './download/'
+    path_parameters = ['MG' , 'SP', 'SE'],
+    download_folder= '/code/download/'
 )
     logging.info('Beggining Request to API')
     list_requests = orquestrador.generate_list_query__path_parameters()
@@ -42,5 +42,4 @@ if __name__ == "__main__":
         df = directory_handler.json_envelope_to_dataframe(path=item)
         connector_postgres.insert_df(df, 'ibge_municipios')
     logging.info('Pipeline done with sucess')
-
 
