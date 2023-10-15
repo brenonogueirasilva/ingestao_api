@@ -16,13 +16,11 @@ services:
     image: python_image
     depends_on:
       - postgres
-    restart: always
-    stdin_open: true
-    tty: true
     volumes:
       - ./src/:/code/
     networks:
       - rede_ingestao_por_api
+    command: python /code/main.py
 
 networks:
   rede_ingestao_por_api: 
