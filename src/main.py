@@ -6,12 +6,12 @@ from classes.postgres import Postgres
 from classes.directory_handler import DirectoryHandler
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='./src/logs.log', level=logging.DEBUG, format= "%(asctime)s :: %(levelname)s :: %(message)s :: %(filename)s :: %(lineno)d ", )
+    logging.basicConfig(filename='./logs.log', level=logging.DEBUG, format= "%(asctime)s :: %(levelname)s :: %(message)s :: %(filename)s :: %(lineno)d ", )
     orquestrador = ApiOrquestrator(
     endpoint= "ibge/municipios/v1/",
     query_parameters =  { "providers" : "dados-abertos-br,gov,wikipedia"},
     path_parameters = ['BA', 'CE'],
-    download_folder= '../download/'
+    download_folder= './download/'
 )
     logging.info('Beggining Request to API')
     list_requests = orquestrador.generate_list_query__path_parameters()
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     logging.info('Request to API done with sucess')
 
     connector_postgres = Postgres(
-        host='localhost', 
+        host='postgres_ingestao_por_api', 
         port=5432, 
         database='postgres', 
         user = 'postgres', 
