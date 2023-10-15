@@ -18,3 +18,125 @@
 2023-10-09 01:16:19,012 :: INFO :: executed with sucess :: postgres.py :: 97 
 2023-10-09 01:16:19,367 :: INFO :: executed with sucess :: postgres.py :: 97 
 2023-10-09 01:16:19,367 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:02:33,942 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:02:33,961 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:02:35,534 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/BA?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:02:35,549 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:02:36,129 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/CE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:02:36,141 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:02:36,164 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:02:36,165 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:02:41,437 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:02:41,453 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:02:41,592 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/BA?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:02:41,606 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:02:41,693 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/CE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:02:41,705 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:02:41,719 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:02:41,720 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:14:51,961 :: INFO :: Beggining Request to API :: <ipython-input-1-c5d6ffbb1fdf> :: 16 
+2023-10-15 19:14:51,977 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:14:56,713 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:14:56,734 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:14:56,885 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:14:56,903 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:14:57,540 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:14:57,550 :: INFO :: Request to API done with sucess :: <ipython-input-1-c5d6ffbb1fdf> :: 19 
+2023-10-15 19:14:57,563 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:14:57,841 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:57,930 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:58,059 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:58,309 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:58,527 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:58,859 :: INFO :: executed with sucess :: postgres.py :: 97 
+2023-10-15 19:14:58,860 :: INFO :: Pipeline done with sucess :: <ipython-input-1-c5d6ffbb1fdf> :: 44 
+2023-10-15 19:20:52,659 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:20:52,678 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:52,786 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:52,808 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:52,925 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:52,941 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:53,017 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:53,027 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:20:53,048 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:20:53,049 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:20:54,834 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:20:54,846 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:54,946 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:54,963 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:55,052 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:55,066 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:55,156 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:55,178 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:20:55,192 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:20:55,192 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:20:56,954 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:20:56,968 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:57,050 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:57,067 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:57,210 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:57,230 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:57,307 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:57,319 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:20:57,334 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:20:57,335 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:20:59,088 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:20:59,099 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:59,173 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:59,190 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:59,262 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:59,278 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:20:59,356 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:20:59,364 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:20:59,377 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:20:59,378 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:21:01,509 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:21:01,521 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:01,628 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:01,646 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:01,719 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:01,737 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:01,824 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:01,834 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:21:01,849 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:21:01,856 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:21:04,877 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:21:04,889 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:04,966 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:04,983 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:05,057 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:05,074 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:05,143 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:05,153 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:21:05,166 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:21:05,167 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:21:09,736 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:21:09,747 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:09,835 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:09,853 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:09,939 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:09,964 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:10,035 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:10,045 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:21:10,058 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:21:10,059 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:21:17,922 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:21:17,935 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:18,035 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:18,058 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:18,142 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:18,160 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:21:18,246 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:21:18,256 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:21:18,273 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:21:18,274 :: INFO :: Pipeline done with sucess :: main.py :: 44 
+2023-10-15 19:25:32,117 :: INFO :: Beggining Request to API :: main.py :: 16 
+2023-10-15 19:25:32,128 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:25:32,208 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/MG?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:25:32,224 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:25:32,343 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SP?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:25:32,358 :: DEBUG :: Starting new HTTPS connection (1): brasilapi.com.br:443 :: connectionpool.py :: 1048 
+2023-10-15 19:25:32,442 :: DEBUG :: https://brasilapi.com.br:443 "GET /api/ibge/municipios/v1/SE?providers=dados-abertos-br%2Cgov%2Cwikipedia HTTP/1.1" 200 None :: connectionpool.py :: 546 
+2023-10-15 19:25:32,457 :: INFO :: Request to API done with sucess :: main.py :: 19 
+2023-10-15 19:25:32,478 :: INFO :: Creation o Delete done with sucess :: postgres.py :: 114 
+2023-10-15 19:25:32,479 :: INFO :: Pipeline done with sucess :: main.py :: 44 

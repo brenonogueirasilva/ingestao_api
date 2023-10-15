@@ -1,0 +1,28 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_ingestao_por_api
+    restart: always
+    environment:
+      POSTGRES_PASSWORD : postgres
+    ports:
+      - 5432:5432
+    networks:
+      - rede_ingestao_por_api
+
+  python:
+    container_name: python_ingestao_por_api
+    image: python_image
+    depends_on:
+      - postgres
+    volumes:
+      - ./src/:/code/
+    networks:
+      - rede_ingestao_por_api
+    command: python /code/main.py
+
+networks:
+  rede_ingestao_por_api: 
+    name: rede_ingestao_por_api
+    driver: bridge
