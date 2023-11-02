@@ -63,7 +63,7 @@ Siga os passos abaixo para executar este projeto:
 
 1. Copie o diretório do projeto para uma pasta local em seu computador.
 2. Abra o terminal do seu computador e mova até o diretório do projeto.
-3. Crie a imagem do container do PySpark executando o seguinte comando: `docker build -t python_image .`
+3. Crie a imagem do container do Python executando o seguinte comando: `docker build -t python_image .`
 4. Crie os containers do Postgres e Python com o seguinte comando: `docker-compose up -d`. Ao executar o container Python, ele irá executar o script.
 
 ## Conclusão
